@@ -179,12 +179,12 @@ Once the sources have been downloaded, a build environment established, and a fi
     
 * **NOTE**: It is recommended that the FLASH image that was shipped with the Galileo development board be read and saved before updating FLASH image(e.g. ```dpcmd.exe -r GalileoOriginalFirmware.bin```).
 
-* Update FLASH image using either the DediProg SF100 GUI or the DPCMD.EXE utility.
-    * Example update of Galileo firmware image when BUILDTARGET is DEBUG
+* Update FLASH image using either the DediProg SF100 GUI or the ```dpcmd.exe``` utility.
+    * Example update of Galileo firmware image when BUILDTARGET is DEBUG (default)
     
         ```dpcmd.exe -u%WORKSPACE%\Build\Quark\DEBUG_VS2015x86\FV\QUARK.fd ```
     
-    * Example update of Galileo firmware image when BUILDTARGET is RELEASE
+    * Example update of Galileo firmware image when BUILDTARGET is RELEASE (```-b RELEASE```)
     
         ```dpcmd.exe -u%WORKSPACE%\Build\Quark\RELEASE_VS2015x86\FV\QUARK.fd ```
 
