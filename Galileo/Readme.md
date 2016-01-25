@@ -173,8 +173,7 @@ Once the sources have been downloaded, a build environment established, and a fi
 
 * **NOTE**: It is recommended that the FLASH image that was shipped with the Galileo development board be read and saved before updating FLASH image(e.g. ```dpcmd.exe -r GalileoOriginalFirmware.bin```).
 
-
-
+![Test](https://github.com/mdkinney/mybooks/blob/master/Galileo/Images/Dediprog.png)
 
 
 
