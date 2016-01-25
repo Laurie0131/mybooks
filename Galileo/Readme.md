@@ -171,9 +171,9 @@ Once the sources have been downloaded, a build environment established, and a fi
 
 * Connect the DediProg SF100 to the Galileo development board.
 
-* **NOTE**: It is recommended that the FLASH image that was shipped with the Galileo development board be read and saved before updating FLASH image(e.g. ```dpcmd.exe -r GalileoOriginalFirmware.bin```).
+    ![](Images/Dediprog.png)
 
-![Test](https://github.com/mdkinney/mybooks/blob/master/Galileo/Images/Dediprog.png)
+* **NOTE**: It is recommended that the FLASH image that was shipped with the Galileo development board be read and saved before updating FLASH image(e.g. ```dpcmd.exe -r GalileoOriginalFirmware.bin```).
 
 
 
