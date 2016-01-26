@@ -338,9 +338,51 @@ ApStartup:
     DW      -3
 ```
 
-## **Install, Configure, and Boot Yocto Linux**
+## **Install, Configure, and Boot Linux**
 
-TBD
+* Download SD Card Linux Image: Available at http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-galileo-boards/000005614.html
+* Extraxt the SD Card Linux Image to a FAT formated Micro SD FLASH device
+* Install Micro SD FLASH device into Galileo development board
+
+Connect power adapter to Galileo development board and boot to the UEFI Shell.
+
+From the UEFI Shell execute the following commands to copy the GRUB EFI boot loader to ```\efi\boot\bootia32.efi```.  This allows the UEFI Boot Manager, on all future boots, to auto detect that the Micro SD FLASH device is bootable.
+
+```
+Shell> connect -r
+Shell> map -r
+Shell> fs0:
+FS0:> mkdir efi
+FS0:> mkdir efi\boot
+FS0:> cp grub.efi efi\boot\bootia32.efi
+```
+
+The GRUB boot loader is set to a UART baud rate of 115200, so a couple changes are required to change the baud rate to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.  From the UEFI Shell, execute the following commands to make a backup copy and edit the GRUB configuration file. 
+
+```
+FS0:> cp boot\grub\grub.conf boot\grub\grub.conf.org
+FS0:> edit boot\grub\grub.conf
+```
+
+Delete the lines for the SPI boot option 
+Change the baud rate to 921600 ot 460800 in both places of the 2nd boot option.
+Save file F3
+Exit from UEFI Shell
+Select Boot Options
+Boot from Misc Device
+Should see serial log messages for Linux booting
+When the log messages stop, change baud rate in Tera Term to 115200.
+Login as root with empty password
+
+
+
+
+
+
+
+
+
+
 
 ### **Testing ACPI S3 Resume**
 
