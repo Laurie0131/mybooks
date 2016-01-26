@@ -298,11 +298,24 @@ The figure below should be seen when a connection is made.  The SoftDebugger Deb
 
 ![](Images/UdkDebugger.png)
 
-## **JTAG Debug Using Intel(R) System Studio 2016**
+## **Debug Using Intel(R) System Debugger using OpenOCD**
 
-### Pre-requisites
+Setup hardware and software components following the instuctions in the article at:
+https://software.intel.com/en-us/articles/using-intel-system-debugger-with-openocd
 
-* Intel(R) System Studio 2016: Available from: https://software.intel.com/en-us/intel-system-studio
+Connect power adapter to Galileo development board.
+
+The following is an example batch file that starts Tera Term serial console on COM5 at 921600 baud, OpenOCD using a Flyswatter2, and the Intel(R) System Studio Debugger to debug a Galileo development board with EDK II firmware.
+
+```cmd
+set OPENOCD="C:\Program Files (x86)\IntelSWTools\system_studio_for_windows_2016.0.023\debugger\openocd"
+start "Console" /B "c:\Program Files (x86)\teraterm\ttermpro.exe" /C=5 /BAUD=921600
+start "OpenOcd" /B %OPENOCD%\bin\openocd.exe -f ..\scripts\interface\ftdi\flyswatter2.cfg -f ..\scripts\board\quark_x10xx_board.cfg
+call "C:\Program Files (x86)\IntelSWTools\System Debugger 2016\system_debugger\start_xdb_gdb_remote.bat"
+```
+
+
+
 
 ## **Install, Configure, and Boot Yocto Linux**
 
