@@ -386,20 +386,41 @@ To:
 
     S:2345:respawn:/sbin/getty 921600 ttyS1
 
-
-
-
-
-
-
-
-
-
-
-
 ### **Testing ACPI S3 Resume**
 
-TBD
+```sh
+#
+# Unload NIC driver that causes S3 to fail
+#
+rmmod stmmac
+
+#
+# Disable RTC wake alarm
+#
+echo 0 > /sys/class/rtc/rtc0/wakealarm
+
+#
+# Compute wake time that is $1 seconds in the future
+#
+let WakeTime=`date '+%s'`
+echo $WakeTime
+if ["$1" = ""]; then
+  let WakeTime=$WakeTime+10
+else
+  let WakeTime=$WakeTime+$1
+fi
+echo $WakeTime
+
+#
+# Enable RTC wake alarm $1 seconds in the future
+#
+echo $WakeTime > /sys/class/rtc/rtc0/wakealarm
+
+#
+# Put systems into ACPI S3 sleep state
+#
+echo mem > /sys/power/state
+```
 
 ## **UEFI Secure Boot Feature and Physical Presence**
 
