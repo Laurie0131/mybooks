@@ -305,6 +305,10 @@ TBD
 
 TBD
 
+### **Testing ACPI S3 Resume**
+
+TBD
+
 ## **UEFI Secure Boot Feature and Physical Presence**
 
 TBD
