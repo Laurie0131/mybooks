@@ -29,8 +29,10 @@
 ### Pre-requisites
 
 * GIT client: Available from https://git-scm.com/downloads
-* Microsoft Visual Studio
+* Microsoft Visual Studio.
+    - Visual Studio 2015 is recommended and is the version used in the examples shown below.
 * ASL compiler: Available from http://www.acpica.org
+    - Install into ```C:\ASL``` to match default tools_def.txt configuration.
 
 Create a new directory for an EDK II WORKSPACE. 
 
@@ -39,7 +41,7 @@ The code block below shows the GIT clone operations required to pull the EDK II 
 Next it sets environment variables that must be set before running edkSetup.bat. Since content is being pulled from multiple repositories, the EDK II [Multiple Workspace](https://github.com/tianocore/tianocore.github.io/wiki/Multiple_Workspace)
 feature is used.
 
-Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in ```QuarkPlatformPlg/Quark.dsc``` builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Linux from a micro SD FLASH card.  The second one in ```QuarkPlatformPkg/QuarkMin.dsc``` builds a minimal firmware image that is useful for initial power-on and debug of new features.
+Next, the ```edksetup.bat``` file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in ```QuarkPlatformPlg/Quark.dsc``` builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Linux from a micro SD FLASH card.  The second one in ```QuarkPlatformPkg/QuarkMin.dsc``` builds a minimal firmware image that is useful for initial power-on and debug of new features.
 
 ```cmd
 git clone https://github.com/tianocore/edk2.git
@@ -64,7 +66,7 @@ build -a IA32 -t VS2015x86 -p QuarkPlatformPkg/QuarkMin.dsc
 
 * GIT client
 * GCC 4.9 compiler
-* ASL compiler: Available from http://www.acpica.org
+* ASL compiler: Available from http://www.acpica.org.
 
 Create a new directory for an EDK II WORKSPACE.
 
