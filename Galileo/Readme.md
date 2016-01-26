@@ -322,8 +322,8 @@ When **Reset Target** is selected, the Galeilo development board does not always
 ; Execution starts here upon power-on/platform-reset.
 ;
 ResetHandler:
-;    NOP
-;    NOP
+;    nop
+;    nop
     jmp $
 ApStartup:
     ;
