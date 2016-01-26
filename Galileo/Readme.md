@@ -299,10 +299,20 @@ The figure below should be seen when a connection is made.  The SoftDebugger Deb
 
 ## **JTAG Debug Using Intel(R) System Studio 2016 Debugger**
 
+TBD
+
 ## **Install, Configure, and Boot Yocto Linux**
+
+TBD
 
 ## **UEFI Secure Boot Feature and Physical Presence**
 
+TBD
+
 ## **Enable Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
+TBD
+
 ## **Measuring Boot Performance**
+
+TBD
