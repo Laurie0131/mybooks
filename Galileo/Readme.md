@@ -305,7 +305,7 @@ https://software.intel.com/en-us/articles/using-intel-system-debugger-with-openo
 
 Connect power adapter to Galileo development board.
 
-The following is an example batch file that starts Tera Term serial console on COM5 at 921600 baud, OpenOCD using a Flyswatter2, and the Intel(R) System Studio Debugger to debug a Galileo development board with EDK II firmware.
+The following batch file starts Tera Term serial console on COM5 at 921600 baud, starts OpenOCD using a Flyswatter2, and starts Intel(R) System Studio Debugger.  Select the **Connect** button to complete the host to target connection. 
 
 ```cmd
 set OPENOCD="C:\Program Files (x86)\IntelSWTools\system_studio_for_windows_2016.0.023\debugger\openocd"
@@ -314,8 +314,29 @@ start "OpenOcd" /B %OPENOCD%\bin\openocd.exe -f ..\scripts\interface\ftdi\flyswa
 call "C:\Program Files (x86)\IntelSWTools\System Debugger 2016\system_debugger\start_xdb_gdb_remote.bat"
 ```
 
+When **Reset Target** is selected, the Galeilo development board does not always halt at the first instruction at the reset vector.  If debug is required from the first instruction of the reset vector, then update the file ```UefiCpuPkg/SecCore/Ia32/ResetVector.asm``` and change the two NOP instuctions at the label ```ResetHandler:``` to ```JMP $```.  This puts the CPU into a wait loop until the debugger is connected and the debugger is used to set IP to the next instruction.
 
-
+```
+;
+; For IA32, the reset vector must be at 0xFFFFFFF0, i.e., 4G-16 byte
+; Execution starts here upon power-on/platform-reset.
+;
+ResetHandler:
+;    NOP
+;    NOP
+    jmp $
+ApStartup:
+    ;
+    ; Jmp Rel16 instruction
+    ; Use machine code directly in case of the assembler optimization
+    ; SEC entry point relative address will be fixed up by some build tool.
+    ;
+    ; Typically, SEC entry point is the function _ModuleEntryPoint() defined in
+    ; SecEntry.asm
+    ;
+    DB      0e9h
+    DW      -3
+```
 
 ## **Install, Configure, and Boot Yocto Linux**
 
