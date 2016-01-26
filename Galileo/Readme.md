@@ -293,10 +293,9 @@ start "Console" /B "c:\Program Files (x86)\teraterm\ttermpro.exe" localhost:2071
 start "Debugger" /B "C:\Program Files (x86)\Intel\Intel(R) UEFI Development Kit Debugger Tool\eXdi.exe" /LaunchWinDbg
 ```
 
-The windows in the figure below should be seen when a connection is made.
+The figure below should be seen when a connection is made.  The SoftDebugger Debug Console window shows the status of the connection between the host and the target.  The Tera Term window shows the console output from the SEC phase until the debug agent is initialized.  The WinDbg window shows that the debugger is connected and the WinDbg application can be used for run control, breakpoint management, and viewing call stacks, local variables,  global variables, etc.
 
 ![](Images/UdkDebugger.png)
-
 
 ## **Install, Configure, and Boot Yocto Linux**
 
