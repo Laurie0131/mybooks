@@ -1,3 +1,5 @@
+{ "title": "My Awesome Book" }
+
 # **QuarkPlatformPkg - EDK II firmware for Intel(R) Quark SoC X1000 based platforms**
 
 # **Features**
@@ -41,7 +43,7 @@ feature is used.
 
 Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in QuarkPlatformPlg/Quark.dsc builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Yocto Linux from a micro SD FLASH card.  The second one in QuarkPlatformPkg/QuarkMin.dsc builds a minimal firmware image that is useful for initial power-on and debug of new features.
 
-``````
+```cmd
 git clone https://github.com/tianocore/edk2.git
 git clone https://github.com/tianocore/edk2-FatPkg.git FatPkg
 git clone https://github.com/tianocore/edk2-BaseTools-win32.git
@@ -76,7 +78,7 @@ Next, the EDK II BaseTools required to build firmware images are built.
 
 Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in QuarkPlatformPlg/Quark.dsc builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Yocto Linux from a micro SD FLASH card.  The second one in QuarkPlatformPkg/QuarkMin.dsc builds a minimal firmware image that is useful for initial power-on and debug of new features.
 
-``````
+```sh
 git clone https://github.com/tianocore/edk2.git
 git clone https://github.com/tianocore/edk2-FatPkg.git FatPkg
 git clone https://github.com/tianocore/edk2-non-osi.git
@@ -204,7 +206,7 @@ The following changes to the Tera Term configuration files are recommended for U
 
 * TERATERM.INI - Disable line mode to make TCPIP mode work like COM port mode.
 
-```
+```ini
 ; Line at a time mode
 EnableLineMode=off
 ```
@@ -213,7 +215,7 @@ EnableLineMode=off
 * KEYBOARD.CNF - Disable VT function keys for F5..F10
  
 
-```
+```ini
 [VT function keys]
 ;F5 key
 ;F5=63
@@ -231,7 +233,7 @@ EnableLineMode=off
 
 * KEYBOARD.CNF - Disable X function keys for F1..F4
 
-```
+```ini
 [X function keys]
 ; F1 key
 XF1=off
@@ -250,7 +252,7 @@ XF4=off
 
 * KEYBOARD.CNF - Add UEFI serial console sequences for F1..F10
 
-```
+```ini
 [User keys]
 User1=59,0,$1B[M
 User2=60,0,$1B[N
@@ -265,7 +267,6 @@ User10=68,0,$1B[V
 ```
 
 # **Source Debug Using Intel(R) UDK Debugger Tool**
-
 
 # **Install, Configure, and Boot Yocto Linux**
 
