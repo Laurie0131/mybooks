@@ -99,8 +99,8 @@ build –a IA32 –t GCC49 –p QuarkPlatformPkg/QuarkMin.dsc
 
 The table below contains a summary of the build flags to enable or disable features on the build command line using ```-D``` flags.
 
-| **Define Name**          | **Default Value**   | **Supported Values** |
-| ------------------------ | ------------------- | -------------------- |
+| **Define Name**            | **Default Value**   | **Supported Values** |
+| -------------------------- | ------------------- | -------------------- |
 | ```GALILEO```              |                GEN2 | GEN1, GEN2           |
 | ```LOGGING```              |                TRUE | TRUE, FALSE          |
 | ```SOURCE_DEBUG_ENABLE```  |               FALSE | TRUE, FALSE          |
