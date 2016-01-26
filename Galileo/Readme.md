@@ -158,7 +158,7 @@ Once the sources have been downloaded, an EDK II build environment established, 
 
 * Connect the DediProg SF100 to the Galileo development board.
 
-    ![](Images/Dediprog SF100.jpg)
+    ![](Images/Dediprog.jpg)
 
 * Make sure ```dpcmd.exe``` is in ```PATH```
 
