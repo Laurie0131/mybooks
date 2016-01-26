@@ -316,7 +316,19 @@ TBD
 
 ## **Enable Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
-TBD
+Build a firmware image with MEASURED_BOOT_ENABLE enabled (```-D MEASURED_BOOT_ENABLE```) and TPM_12_HARDWARE set to ATMEL_I2C (```-D TMP_12_HARDWARE=ATMEL_I2C). This builds in the TCG modules and the library for the Atmel I2C TPM hardware devices.
+
+Use Dediprog SF100 to update the Galileo development board FLASH image.
+
+Attach the CryptoShield to the Arduino header of the Galileo development board as shown below.
+
+![](Images/GalileoCryptoShield.jpg)
+
+Connect power adapter to Galileo development board and let it boot to the UEFI Shell.  In the boot logging messages, messages similar to the following should be seen as the Atmel I2C TPM hardware device is detected and used to measure the contents of firmware volumes and firmware tables.
+```
+
+```
+
 
 ## **Measuring Boot Performance**
 
