@@ -312,7 +312,13 @@ TBD
 
 ## **UEFI Secure Boot Feature and Physical Presence**
 
-TBD
+Build a firmware image with SECURE_BOOT_ENABLE enabled (```-D SECURE_BOOT_ENABLE```). This builds in support for UEFI authenticated variables, UEFI image verification, and UEFI Secure Boot configuration screens in the Device Manager. In order to change the UEFI Secure Boot configuration, the user must assert physical presence.  The Galileo development board only has two push buttons (REBOOT and RESET).  The REBOOT button unconditionally reboots the platform. The RESET button asserts the reset signal on the Arduino header and is also connected to a GPIO pin, so the state of the RESET button can be read.  The user asserts physical presence by holding the RESET button while the Galileo development board boots, or by holding the RESET button while selecting the **Secure Boot Configuration** option in the Device Manager.
+
+Use Dediprog SF100 to update the Galileo development board FLASH image.
+
+Connect power adapter to Galileo development board and boot to the UEFI Boot Manager by pressing F2 or running the ```exit``` command from the UEFI Shell.   Select **Device Manager** and then**Secure Boot Configuration**.  Change **Customize Secure Boot** to **Customized** and then select **Custom Secure Boot Options**.  If **Custom Secure Boot Options** can not be selected, then physical presence was not asserted using one of two methods listed above.  Assert physical presence and try again.
+
+The **Custom Secure Boot Options** screen allows the Galileo development board to be enrolled into UEFI Secure Boot.  See [How to Sign UEFI Drivers & Application V1.31]( http://sourceforge.net/projects/edk2/files/General%20Documentation/SigningUefiImages%20-v1dot31.pdf/download) for details on how to complete the UEFI Secure Boot enrollment.
 
 ## **Enable Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
