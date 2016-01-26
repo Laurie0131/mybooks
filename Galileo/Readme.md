@@ -297,9 +297,9 @@ The figure below should be seen when a connection is made.  The SoftDebugger Deb
 
 ![](Images/UdkDebugger.png)
 
-## **Install, Configure, and Boot Yocto Linux**
+## **JTAG Debug Using Intel(R) System Studio 2016 Debugger**
 
-## **JTAG Debug Using Intel(r) System Studio Debugger**
+## **Install, Configure, and Boot Yocto Linux**
 
 ## **UEFI Secure Boot Feature and Physical Presence**
 
