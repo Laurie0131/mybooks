@@ -298,9 +298,11 @@ The figure below should be seen when a connection is made.  The SoftDebugger Deb
 
 ![](Images/UdkDebugger.png)
 
-## **JTAG Debug Using Intel(R) System Studio 2016 Debugger**
+## **JTAG Debug Using Intel(R) System Studio 2016**
 
-TBD
+### Pre-requisites
+
+* Intel(R) System Studio 2016: Available from: https://software.intel.com/en-us/intel-system-studio
 
 ## **Install, Configure, and Boot Yocto Linux**
 
@@ -355,7 +357,7 @@ Loading driver at 0x0000F620000 EntryPoint=0x0000F620260 TcgDxe.efi
 . . .
 TPM TcgDxe Measure Data when ReadyToBoot
 ```
-See the [SecurityPkg Wiki](https://github.com/tianocore/tianocore.github.io/wiki/SecurityPkg) for additional details on EDK II TPM support.
+See the [SecurityPkg Wiki](https://github.com/tianocore/tianocore.github.io/wiki/SecurityPkg) for additional details on EDK II TPM support
 
 ## **Measuring Boot Performance**
 
