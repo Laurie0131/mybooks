@@ -187,7 +187,7 @@ The default serial communication parameters for the Intel(R) Galileo Gen 2 Devel
 
 The default serial communication parameters for the Intel(R) Galileo Development Board is 461800,n,8,1 with no hardware flow control.
 
-The following changes to the [Tera Term](https://en.osdn.jp/projects/ttssh2/releases/)) configuration files are recommended for UEFI cserial console compatiblity.  Some of the later use cases involve using Tera Term in its TCPIP mode, so some of these recommendedation apply to the TCPIP use cases.
+The following changes to the [Tera Term](https://en.osdn.jp/projects/ttssh2/releases/) configuration files are recommended for UEFI cserial console compatiblity.  Some of the later use cases involve using the TCPIP mode, so some of these recommendedation apply to the TCPIP use cases.
 
 * TERATERM.INI - Set terminal settings to UTF8.
 
