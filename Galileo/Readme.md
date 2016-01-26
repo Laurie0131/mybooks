@@ -273,9 +273,9 @@ Follow instructions in Intel(R) UEFI Development Kit Debugger Tool User manual t
 
 Build a firmware image with SOURCE_DEBUG_ENABLE enabled (```-D SOURCE_DEBUG_ENABLE```).  This will select the appropriate libraries, debug agent, and PCDs for Galileo.  Galileo does not support a USB 2.0 debug port, so only the UART based communications library is used.
 
-Use Dediprog to update the Galileo development board FLASH image.
+Use Dediprog SF100 to update the Galileo development board FLASH image.
 
-Update the ```[Debug Port]``` section of the UDK Debugger Tool SoftDebugger.ini file with the host side UART configuration settings.  The following example uses COM5, which must be updated with the COM port the Galileo target is attached.  By default, the Galileo console is redirected to TCPIP port 20715.
+Update the ```[Debug Port]``` section of the UDK Debugger Tool SoftDebugger.ini file with the host side UART configuration settings.  The following example uses COM5, which must be updated with the COM port the Galileo target is attached.  The following example also shows a baud rate of 921600 which is correct for a Galileo Gen 2.  If a Galileo Gen 1 is being used, set the baud rate to 460800.  By default, the Galileo console is redirected to TCPIP port 20715.
 
 ```ini
 [Debug Port]
@@ -286,12 +286,17 @@ BaudRate = 921600
 Server = 
 ```
 
-Connect power adapter to Galileo development board and run a command script with the following contents to start a Tera Term session on TCPIP port 20715 and start the Intel(R) UDK Debugger Tool using UART connection between the host and target and WinDbg.
+Connect power adapter to Galileo development board and run a command script with the  contents below to start a Tera Term session on TCPIP port 20715 and start the Intel(R) UDK Debugger Tool using UART connection between the host and target and WinDbg.  The REBOOT button on the Galileo development board may need to be pressed for the debugger to perform the initial connect.
 
 ```cmd
 start "Console" /B "c:\Program Files (x86)\teraterm\ttermpro.exe" localhost:20715 /nossh
 start "Debugger" /B "C:\Program Files (x86)\Intel\Intel(R) UEFI Development Kit Debugger Tool\eXdi.exe" /LaunchWinDbg
 ```
+
+The windows in the figure below should be seen when a connection is made.
+
+![](Images/UdkDebugger.png)
+
 
 ## **Install, Configure, and Boot Yocto Linux**
 
