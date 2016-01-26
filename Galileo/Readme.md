@@ -194,22 +194,18 @@ Once the sources have been downloaded, an EDK II build environment established, 
 
 **Setting up a Serial Console and Booting to UEFI Shell**
 
-After the FLASH is updated on Galileo, a serial cable is connected between the host system and the Galileo target.  A serial terminal emulator (such as [Tera Term](https://en.osdn.jp/projects/ttssh2/releases/)) is used to see the loggin messages from DEBUG() macros and the serial console for the UEFI Boot Manager, UEFI Shell, and OS boots.
+After the FLASH is updated on Galileo, a serial cable is connected between the host system and the Galileo target.  A serial terminal emulator (such as [Tera Term](https://en.osdn.jp/projects/ttssh2/releases/)) can be used to see the logging messages from DEBUG() macros and the serial console for the UEFI Boot Manager, UEFI Shell, and operating system.
 
 The default serial communication parameters for the Intel(R) Galileo Gen 2 Development Board is 921600,n,8,1 with no hardware flow control.
 
 ![](Images/TeraTermSerialParameters.png)
+
 
 The default serial communication parameters for the Intel(R) Galileo Development Board is 461800,n,8,1 with no hardware flow control.
 
 Connect power adapter to Galileo development board, and the logging messages should be seen, followed by 5 second countdown, followed by an automatic boot to the built-in UEFI Shell.
 
 ![](Images/UefiShell.png)
-
-
-
-
-
 
 # 
 
