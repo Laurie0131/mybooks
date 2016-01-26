@@ -316,7 +316,7 @@ TBD
 
 ## **Enable Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
-Build a firmware image with MEASURED_BOOT_ENABLE enabled (```-D MEASURED_BOOT_ENABLE```) and TPM_12_HARDWARE set to ATMEL_I2C (```-D TMP_12_HARDWARE=ATMEL_I2C). This builds in the TCG modules and the library for the Atmel I2C TPM hardware devices.
+Build a firmware image with MEASURED_BOOT_ENABLE enabled (```-D MEASURED_BOOT_ENABLE```) and TPM_12_HARDWARE set to ATMEL_I2C (```-D TMP_12_HARDWARE=ATMEL_I2C```). This builds in the TCG PEIM and DXE modules and uses the library for the Atmel I2C TPM hardware device.
 
 Use Dediprog SF100 to update the Galileo development board FLASH image.
 
@@ -324,9 +324,29 @@ Attach the CryptoShield to the Arduino header of the Galileo development board a
 
 ![](Images/GalileoCryptoShield.jpg)
 
-Connect power adapter to Galileo development board and let it boot to the UEFI Shell.  In the boot logging messages, messages similar to the following should be seen as the Atmel I2C TPM hardware device is detected and used to measure the contents of firmware volumes and firmware tables.
-```
+Connect power adapter to Galileo development board and boot to the UEFI Shell.  In the boot logging messages, messages similar to the following should be seen as the Atmel I2C TPM hardware device is detected and used to measure the contents of firmware volumes and firmware tables.
 
+```
+Loading PEIM at 0x0000FC75188 EntryPoint=0x0000FC75260 TrEEConfigPei.efi
+PROGRESS CODE: V03020002 I0
+TrEEConfiguration.TpmDevice from Setup: 1
+DetectTpmDevice:
+TpmDevice final: 1
+TpmDevice PCD: 8B01E5B6-4F19-46E8-AB93-1C53671B90CC
+. . .
+Loading PEIM at 0x0000FC70190 EntryPoint=0x0000FC70260 TcgPei.efi
+PROGRESS CODE: V03020002 I0
+Install PPI: E9DB0D58-D48D-47F6-9C6E-6F40E86C7B41
+Install PPI: A030D115-54DD-447B-9064-F206883D7CCC
+PROGRESS CODE: V03020003 I0
+The FV which is measured by TcgPei starts at: 0xFFF10000
+The FV which is measured by TcgPei has the size: 0xF0000
+The FV which is measured by TcgPei starts at: 0xFFD00000
+The FV which is measured by TcgPei has the size: 0x1E0000
+. . .
+Loading driver at 0x0000F620000 EntryPoint=0x0000F620260 TcgDxe.efi
+. . .
+TPM TcgDxe Measure Data when ReadyToBoot
 ```
 
 
