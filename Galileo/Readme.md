@@ -374,6 +374,19 @@ Should see serial log messages for Linux booting
 When the log messages stop, change baud rate in Tera Term to 115200.
 Login as root with empty password
 
+Use ```vi``` to edit ```/etc/inittab``` and change the baud rate for ttyS1 from 115200 to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.  
+
+vi /etc/inittab
+
+Change line from:
+
+    S:2345:respawn:/sbin/getty 115200 ttyS1
+
+To:
+
+    S:2345:respawn:/sbin/getty 921600 ttyS1
+
+
 
 
 
