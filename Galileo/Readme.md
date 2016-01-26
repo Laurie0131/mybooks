@@ -207,6 +207,70 @@ Connect power adapter to Galileo development board, and the logging messages sho
 
 ![](Images/UefiShell.png)
 
+The following changes to the Tera Term configuration files are recommended for UEFI cserial console compatiblity.  Some of the later use cases involve using Tera Term in its TCPIP mode, so some of these recommendedation apply to those use cases.
+
+* KEYBOARD.CNF - Disable VT function keys for F5..F10
+ 
+
+```
+[VT function keys]
+;F5 key
+;F5=63
+;F6 key
+;F6=64
+;F7 key
+;F7=65
+;F8 key
+;F8=66
+;F9 key
+;F9=67
+;F10 key
+;F10=68
+```
+
+* KEYBOARD.CNF - Disable X function keys for F1..F4
+
+```
+[X function keys]
+; F1 key
+XF1=off
+; F2 key
+;XF2=60
+XF2=off
+; F3 key
+;XF3=61
+XF3=off
+; F4 key
+;XF4=62
+XF4=off
+; F5 key
+;XF5=63
+```
+
+* KEYBOARD.CNF - Add UEFI serial console sequences for F1..F10
+
+```
+[User keys]
+User1=59,0,$1B[M
+User2=60,0,$1B[N
+User3=61,0,$1B[O
+User4=62,0,$1B[P
+User5=63,0,$1B[Q
+User6=64,0,$1B[R
+User7=65,0,$1B[S
+User8=66,0,$1B[T
+User9=67,0,$1B[U
+User10=68,0,$1B[V
+```
+
+* TERATERM.INI - Disable line mode to make TCPIP mode work like COM port mode.
+
+```
+; Line at a time mode
+EnableLineMode=off
+```
+
+
 # 
 
 **Install, Configure, and Boot Yocto Linux**
