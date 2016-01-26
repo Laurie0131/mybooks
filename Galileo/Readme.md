@@ -105,7 +105,7 @@ build –a IA32 –t GCC49 –p QuarkPlatformPkg/QuarkMin.dsc
 
 **Build Features**
 
-The table below contains a summary of the build flags to enable or disable features on the build command line using the ```-D``` flag.
+The table below contains a summary of the build flags to enable or disable features on the build command line using ```-D``` flags.
 
 | **Define Name**          | **Default Value**   | **Supported Values** |
 | ------------------------ | ------------------- | -------------------- |
@@ -190,20 +190,11 @@ Once the sources have been downloaded, an EDK II build environment established, 
     
         ```dpcmd.exe -u%WORKSPACE%\Build\Quark\RELEASE_VS2015x86\FV\QUARK.fd ```
 
-    
-
-
-
-
-
-
-
-
-
-
 # 
 
 **Setting up a Serial Console and Booting to UEFI Shell**
+
+
 
 # 
 
