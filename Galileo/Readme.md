@@ -3,7 +3,7 @@
 ## **Features**
 * UEFI firmware image with ability to enable/disable major features such as
     - Logging
-    - Source level debug using Intel(R) UDK Debugger Tool
+    - Source level debug using [Intel(R) UEFI Development Kit  Debugger Tool](https://firmware.intel.com/develop/intel-uefi-tools-and-utilities/intel-uefi-development-kit-debugger-tool)
     - Boot Performance Measurements
     - UEFI Secure Boot with Physical Presence
     - TCG Measured Boot using TPM 1.2 hardware devices on I2C bus
@@ -39,7 +39,7 @@ The code block below shows the GIT clone operations required to pull the EDK II 
 Next it sets environment variables that must be set before running edkSetup.bat. Since content is being pulled from multiple repositories, the EDK II [Multiple Workspace](https://github.com/tianocore/tianocore.github.io/wiki/Multiple_Workspace)
 feature is used.
 
-Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in QuarkPlatformPlg/Quark.dsc builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Yocto Linux from a micro SD FLASH card.  The second one in QuarkPlatformPkg/QuarkMin.dsc builds a minimal firmware image that is useful for initial power-on and debug of new features.
+Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in ```QuarkPlatformPlg/Quark.dsc``` builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Yocto Linux from a micro SD FLASH card.  The second one in ```QuarkPlatformPkg/QuarkMin.dsc``` builds a minimal firmware image that is useful for initial power-on and debug of new features.
 
 ```cmd
 git clone https://github.com/tianocore/edk2.git
@@ -75,7 +75,7 @@ feature is used.
 
 Next, the EDK II BaseTools required to build firmware images are built.
 
-Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in QuarkPlatformPlg/Quark.dsc builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Yocto Linux from a micro SD FLASH card.  The second one in QuarkPlatformPkg/QuarkMin.dsc builds a minimal firmware image that is useful for initial power-on and debug of new features.
+Next, the edkSetup.bat file is run to complete the initialization of an EDK II build environment.  Two example build commands are shown.  The first one in ```QuarkPlatformPlg/Quark.dsc``` builds a full UEFI firmware image that is able to boot the built-in UEFI Shell and Yocto Linux from a micro SD FLASH card.  The second one in ```QuarkPlatformPkg/QuarkMin.dsc``` builds a minimal firmware image that is useful for initial power-on and debug of new features.
 
 ```sh
 git clone https://github.com/tianocore/edk2.git
@@ -114,7 +114,7 @@ The table below contains a summary of the build flags to enable or disable featu
 
 * ```LOGGING``` - Used to enable/disable logging messages from DEBUG() macros to a serial UART.  The default is TRUE for enabled when the BUILDTARGET is DEBUG (```-b DEBUG```).  The default is FALSE for disabled when the BUILDTARGET is not DEBUG (e.g. ```-b RELEASE```).  Add ```-D LOGGING``` to the build command to force logging enabled.  Add ```-D LOGGING=FALSE``` to force logging disabled.
 
-* ```SOURCE_DEBUG_ENABLE``` - Used to enable/disable source level debug using the [Intel(R) UDK Debugger Tool](https://firmware.intel.com/develop/intel-uefi-tools-and-utilities/intel-uefi-development-kit-debugger-tool).  The default is FALSE for disabled.  Add ```-D SOURCE_DEBUG_ENABLE``` to the build command line to enable source level debug.
+* ```SOURCE_DEBUG_ENABLE``` - Used to enable/disable source level debug using the [Intel(R) UEFI Development Kit Debugger Tool](https://firmware.intel.com/develop/intel-uefi-tools-and-utilities/intel-uefi-development-kit-debugger-tool).  The default is FALSE for disabled.  Add ```-D SOURCE_DEBUG_ENABLE``` to the build command line to enable source level debug.
 
 * ```PERFORMANCE_ENABLE``` - Used to enable/disable boot performance measurement.  The default is FALSE for disabled.  Add ```-D PERFORMANCE_ENABLE``` to the build command line to enable boot performance measurement.  When this feature is enabled, both ```LOGGING``` and ```SOURCE_DEBUG_ENABLE``` are automatically disabled so there is not boot time overhead from the serial UART for logging messages or the debug agent.
 
@@ -262,7 +262,7 @@ Connect power adapter to Galileo development board, and the logging messages sho
 
 ![](Images/UefiShell.png)
 
-## **Source Level Debug Using Intel(R) UDK Debugger Tool**
+## **Source Level Debug Using Intel(R) UEFI Development Kit Debugger Tool**
 
 ### Pre-requisites
 
@@ -276,7 +276,7 @@ Build a firmware image with SOURCE_DEBUG_ENABLE enabled (```-D SOURCE_DEBUG_ENAB
 
 Use Dediprog SF100 to update the Galileo development board FLASH image.
 
-Update the ```[Debug Port]``` section of the UDK Debugger Tool SoftDebugger.ini file with the host side UART configuration settings.  The following example uses COM5, which must be updated with the COM port the Galileo target is attached.  The following example also shows a baud rate of 921600 which is correct for a Galileo Gen 2.  If a Galileo Gen 1 is being used, set the baud rate to 460800.  By default, the Galileo console is redirected to TCPIP port 20715.
+Update the ```[Debug Port]``` section of the SoftDebugger.ini file with the host side UART configuration settings.  The following example uses COM5, which must be updated with the COM port the Galileo target is attached.  The following example also shows a baud rate of 921600 which is correct for a Galileo Gen 2.  If a Galileo Gen 1 is being used, set the baud rate to 460800.  By default, the Galileo console is redirected to TCPIP port 20715.
 
 ```ini
 [Debug Port]
@@ -287,7 +287,7 @@ BaudRate = 921600
 Server = 
 ```
 
-Connect power adapter to Galileo development board and run a command script with the  contents below to start a Tera Term session on TCPIP port 20715 and start the Intel(R) UDK Debugger Tool using UART connection between the host and target and WinDbg.  The REBOOT button on the Galileo development board may need to be pressed for the debugger to perform the initial connect.
+Connect power adapter to Galileo development board and run a command script with the  contents below to start a Tera Term session on TCPIP port 20715 and start the Intel(R) UEFI Development Kit Debugger Tool using UART connection between the host and target and WinDbg.  The REBOOT button on the Galileo development board may need to be pressed for the debugger to perform the initial connect.
 
 ```cmd
 start "Console" /B "c:\Program Files (x86)\teraterm\ttermpro.exe" localhost:20715 /nossh
@@ -320,7 +320,10 @@ TBD
 
 ## **Measuring Boot Performance**
 
-Build a firmware image with PERFORMANCE_ENABLE enabled (```-D PERFORMANCE_ENABLE```). This builds inThis will select the appropriate libraries, debug agent, and PCDs for Galileo. Galileo does not support a USB 2.0 debug port, so only the UART based communications library is used.
+Build a firmware image with PERFORMANCE_ENABLE enabled (```-D PERFORMANCE_ENABLE```). This builds in the UEFI Shell and the DP.EFI (Dump Performance) into a firmware volume and also includes a simple file system driver for firmware volumes so the DP.EFI command can be run out of the FLASH.
 
+Use Dediprog SF100 to update the Galileo development board FLASH image.
 
-TBD
+Connect power adapter to Galileo development board and let it boot to the UEFI Shell.  Then use the REBOOT button or the ```reset``` UEFI Shell command to reboot the Galileo development board.  The first boot after a FLASH update does extra work that is only performed one time.  In order to get correct performance measurements, use the 2nd or later boots.  After the 2nd boot, run the ```dp –s``` command.  The output should look similar to the figure below.
+
+![](Images/DpCommand.png)
