@@ -207,7 +207,23 @@ Connect power adapter to Galileo development board, and the logging messages sho
 
 ![](Images/UefiShell.png)
 
-The following changes to the Tera Term configuration files are recommended for UEFI cserial console compatiblity.  Some of the later use cases involve using Tera Term in its TCPIP mode, so some of these recommendedation apply to those use cases.
+The following changes to the Tera Term configuration files are recommended for UEFI cserial console compatiblity.  Some of the later use cases involve using Tera Term in its TCPIP mode, so some of these recommendedation apply to the TCPIP use cases.
+
+* TERATERM.INI - Set terminal settings to UTF8.
+
+![](Images/TeraTermTerminal.png)
+
+* TERATERM.INI - Set font type to Terminal to support box drawing glyphs.
+
+![](Images/TeraTermFont.png)
+
+* TERATERM.INI - Disable line mode to make TCPIP mode work like COM port mode.
+
+```
+; Line at a time mode
+EnableLineMode=off
+```
+
 
 * KEYBOARD.CNF - Disable VT function keys for F5..F10
  
@@ -262,14 +278,6 @@ User8=66,0,$1B[T
 User9=67,0,$1B[U
 User10=68,0,$1B[V
 ```
-
-* TERATERM.INI - Disable line mode to make TCPIP mode work like COM port mode.
-
-```
-; Line at a time mode
-EnableLineMode=off
-```
-
 
 # 
 
