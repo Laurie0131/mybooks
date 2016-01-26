@@ -1,8 +1,6 @@
-{ "title": "My Awesome Book" }
-
 # **QuarkPlatformPkg - EDK II firmware for Intel(R) Quark SoC X1000 based platforms**
 
-# **Features**
+## **Features**
 * UEFI firmware image with ability to enable/disable major features such as
     - Logging
     - Source level debug using Intel(R) UDK Debugger Tool
@@ -26,9 +24,9 @@
 * ACPI Tables with ACPI S3 sleep state support
 * SMBIOS Tables
 
-# **Windows Build Instructions**
+## **Windows Build Instructions**
 
-## Pre-requisites
+### Pre-requisites
 
 * GIT client: Available from https://git-scm.com/downloads
 * Microsoft Visual Studio
@@ -59,9 +57,9 @@ edkSetup.bat
 build -a IA32 -t VS2015x86 -p QuarkPlatformPkg/Quark.dsc
 build -a IA32 -t VS2015x86 -p QuarkPlatformPkg/QuarkMin.dsc
 ``````
-# **Linux Build Instructions**
+## **Linux Build Instructions**
 
-## Pre-requisites
+### Pre-requisites
 
 * GIT client
 * GCC 4.9 compiler
@@ -97,7 +95,7 @@ build –a IA32 –t GCC49 –p QuarkPlatformPkg/Quark.dsc
 build –a IA32 –t GCC49 –p QuarkPlatformPkg/QuarkMin.dsc
 ``````
 
-# **Build Features**
+## **Build Features**
 
 The table below contains a summary of the build flags to enable or disable features on the build command line using ```-D``` flags.
 
@@ -126,7 +124,7 @@ The table below contains a summary of the build flags to enable or disable featu
 * ```TPM_12_HARDWARE``` - Used to specify the type of TPM 1.2 hardware device that is connected to the Galileo board.  This define is valid if the measure boot feature is enabled using ```-D MEASURED_BOOT_ENABLE```.  The default is NONE for no TPM 1.2 hardware device connected.  Add ```-D TPM_12_HARDWARE=LPC``` for a TPM hardware device attached to an LPC bus (not supported on on Intel(R) Quark SoC X1000).  Add ```-D TPM_12_HARDWARE=ATMEL_I2C``` for an [Atmel AT97SC3204T](http://www.atmel.com/devices/AT97SC3204T.aspx) or  [Atmel AT97SC3205T](http://www.atmel.com/images/atmel-8883s-tpm-at97sc3205t-datasheet-summary.pdf) attached to the I2C bus of the Galileo Arduino header.  Add ```-D TPM_12_HARDWARE=INFINION_I2C``` for an [Infineon SLB9645](http://www.infineon.com/dgdl/Infineon-TPM+SLB+9645-DS-v01_00-EN.pdf?fileId=5546d4625185e0e201518b83d0c63d7c) attached to the I2C bus of the Galileo Arduino header.  The ATMEL_I2C setting has been tested with the [CryptoShield](https://www.sparkfun.com/products/13183) available from [SparkFun](https://www.sparkfun.com/).
   
 
-## **Example Build Commands**
+### **Example Build Commands**
 
 Default build with logging enabled:
 
@@ -152,7 +150,7 @@ Enable both UEFI Secure Boot features and measure boot using Atmel I2C TPM hardw
 
 ```build -a IA32 -t VS2015x86 -p QuarkPlatformPkg/Quark.dsc -D UEFI_SECURE_BOOT -D MEASURED_BOOT_ENABLE -D TPM_12_HARDWARE=ATMEL_I2C```
 
-# **FLASH Update using DediProg SF100**
+## **FLASH Update using DediProg SF100**
 
 Once the sources have been downloaded, an EDK II build environment established, and an EDK II firmware image has been built, the EDK II firmware image needs to installed into the FLASH device on the target Galileo development board.  One way to do this is with the [Dediprog SF100 IC Programmer](http://www.dediprog.com/pd/spi-flash-solution/SF100).  
 
@@ -179,7 +177,7 @@ Once the sources have been downloaded, an EDK II build environment established, 
     
         ```dpcmd.exe -u%WORKSPACE%\Build\Quark\RELEASE_VS2015x86\FV\QUARK.fd ```
 
-# **Setting up a Serial Console and Booting to UEFI Shell**
+## **Setting up a Serial Console and Booting to UEFI Shell**
 
 After the FLASH is updated on Galileo, a serial cable is connected between the host system and the Galileo target.  A serial terminal emulator (such as [Tera Term](https://en.osdn.jp/projects/ttssh2/releases/)) can be used to see the logging messages from DEBUG() macros and the serial console for the UEFI Boot Manager, UEFI Shell, and operating system.
 
@@ -211,9 +209,7 @@ The following changes to the Tera Term configuration files are recommended for U
 EnableLineMode=off
 ```
 
-
 * KEYBOARD.CNF - Disable VT function keys for F5..F10
- 
 
 ```ini
 [VT function keys]
@@ -266,14 +262,14 @@ User9=67,0,$1B[U
 User10=68,0,$1B[V
 ```
 
-# **Source Debug Using Intel(R) UDK Debugger Tool**
+## **Source Debug Using Intel(R) UDK Debugger Tool**
 
-# **Install, Configure, and Boot Yocto Linux**
+## **Install, Configure, and Boot Yocto Linux**
 
-# **JTAG Debug Using Intel(r) System Studio Debugger**
+## **JTAG Debug Using Intel(r) System Studio Debugger**
 
-# **UEFI Secure Boot Feature and Physical Presence**
+## **UEFI Secure Boot Feature and Physical Presence**
 
-# **Testing Measured Boot Feature using Atmel I2C TPM on CryptoShield**
+## **Testing Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
-# **Measuring Boot Performance**
+## **Measuring Boot Performance**
