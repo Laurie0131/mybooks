@@ -320,4 +320,7 @@ TBD
 
 ## **Measuring Boot Performance**
 
+Build a firmware image with PERFORMANCE_ENABLE enabled (```-D PERFORMANCE_ENABLE```). This builds inThis will select the appropriate libraries, debug agent, and PCDs for Galileo. Galileo does not support a USB 2.0 debug port, so only the UART based communications library is used.
+
+
 TBD
