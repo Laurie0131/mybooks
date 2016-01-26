@@ -357,36 +357,45 @@ FS0:> mkdir efi\boot
 FS0:> cp grub.efi efi\boot\bootia32.efi
 ```
 
-The GRUB boot loader is set to a UART baud rate of 115200, so a couple changes are required to change the baud rate to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.  From the UEFI Shell, execute the following commands to make a backup copy and edit the GRUB configuration file. 
+The GRUB boot loader is set to a UART baud rate of 115200.  A couple changes are required to change the baud rate to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.  From the UEFI Shell, execute the following commands to make a backup copy and edit the GRUB configuration file. 
 
 ```
 FS0:> cp boot\grub\grub.conf boot\grub\grub.conf.org
 FS0:> edit boot\grub\grub.conf
 ```
 
-Delete the lines for the SPI boot option 
-Change the baud rate to 921600 ot 460800 in both places of the 2nd boot option.
-Save file F3
-Exit from UEFI Shell
-Select Boot Options
-Boot from Misc Device
-Should see serial log messages for Linux booting
-When the log messages stop, change baud rate in Tera Term to 115200.
-Login as root with empty password
+* Delete the lines associated with the boot option with the following title.
 
-Use ```vi``` to edit ```/etc/inittab``` and change the baud rate for ttyS1 from 115200 to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.  
+```
+title Clanton SVP kernel-SPI initrd-SPI IMR-On IO-APIC/HPET NoEMU
+```
 
-vi /etc/inittab
+* Replace the two instances of 115200 in the following line to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.
 
-Change line from:
+```
+kernel /bzImage root=/dev/ram0 console=ttyS1,115200n8 earlycon=uart8250,mmio32,$EARLY_CON_ADDR_REPLACE,115200n8 reboot=efi,warm apic=debug rw LABEL=boot debugshell=5 rootimage=image-full-galileo-clanton.ext3
+```
+* Press F3 to save the file
+* Run the ```exit``` command to exit from the UEFI Shell and return to the UEFI Boot Manager
+* Select **Boot Manager**
+* Select **UEFI Misc Device** for the Micro SD FLASH device.
+* GRUB should run and Linux should boot with serial log messages.
+* When the serial log messages stop, change the Tera Term baud rate to 115200
+* Login as ```root```.   No password is required.
+* Use ```vi``` to edit ```/etc/inittab```
+* Change the baud rate of ttyS1 from 115200 to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.  The line that need to be updated is shown below 
+```
+S:2345:respawn:/sbin/getty 115200 ttyS1
+```
+* Save the updated ```/etc/inittab```
+* Run ```reboot -f``` to shutdown Linux and reboot the platform.
+* Set the Tera Term baud rate to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.
 
-    S:2345:respawn:/sbin/getty 115200 ttyS1
+### **Testing ACPI S3 Sleep**
 
-To:
+The ACPI S3 Sleep and ake feature can be tested on a Galileo develpment board using the Real Time Clock (RTC) for a wake event.  The shell script shown below arms the RTC wake alarm 10 seconds in the future. and puts the system to sleep.  A shorter time ins seconds can be passed in as the first argument to the script.
 
-    S:2345:respawn:/sbin/getty 921600 ttyS1
-
-### **Testing ACPI S3 Resume**
+**NOTE**: The stmmac module is unloaded because the module is not compatible with S3 resume.
 
 ```sh
 #
