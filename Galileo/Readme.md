@@ -56,7 +56,8 @@ edkSetup.bat
 
 build -a IA32 -t VS2015x86 -p QuarkPlatformPkg/Quark.dsc
 build -a IA32 -t VS2015x86 -p QuarkPlatformPkg/QuarkMin.dsc
-``````
+```
+
 ## **Linux Build Instructions**
 
 ### Pre-requisites
@@ -93,7 +94,7 @@ cd $WORKSPACE/edk2
 
 build –a IA32 –t GCC49 –p QuarkPlatformPkg/Quark.dsc
 build –a IA32 –t GCC49 –p QuarkPlatformPkg/QuarkMin.dsc
-``````
+```
 
 ## **Build Features**
 
