@@ -318,7 +318,8 @@ Use Dediprog SF100 to update the Galileo development board FLASH image.
 
 Connect power adapter to Galileo development board and boot to the UEFI Boot Manager by pressing F2 or running the ```exit``` command from the UEFI Shell.   Select **Device Manager** and then**Secure Boot Configuration**.  Change **Customize Secure Boot** to **Customized** and then select **Custom Secure Boot Options**.  If **Custom Secure Boot Options** can not be selected, then physical presence was not asserted using one of two methods listed above.  Assert physical presence and try again.
 
-The **Custom Secure Boot Options** screen allows the Galileo development board to be enrolled into UEFI Secure Boot.  See [How to Sign UEFI Drivers & Application V1.31]( http://sourceforge.net/projects/edk2/files/General%20Documentation/SigningUefiImages%20-v1dot31.pdf/download) for details on how to complete the UEFI Secure Boot enrollment.
+The **Custom Secure Boot Options** screen allows the Galileo development board to be enrolled into UEFI Secure Boot.  See [How to Sign UEFI Drivers & Application V1.31]( http://sourceforge.net/projects/edk2/files/General%20Documentation/SigningUefiImages%20-v1dot31.pdf/download) in the [SecurityPkg Wiki](https://github.com/tianocore/tianocore.github.io/wiki/SecurityPkg) for details on how to complete the UEFI Secure Boot enrollment.
+
 
 ## **Enable Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
@@ -354,7 +355,7 @@ Loading driver at 0x0000F620000 EntryPoint=0x0000F620260 TcgDxe.efi
 . . .
 TPM TcgDxe Measure Data when ReadyToBoot
 ```
-
+See the [SecurityPkg Wiki](https://github.com/tianocore/tianocore.github.io/wiki/SecurityPkg) for additional details on EDK II TPM support.
 
 ## **Measuring Boot Performance**
 
