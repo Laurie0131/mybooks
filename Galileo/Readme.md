@@ -389,7 +389,9 @@ S:2345:respawn:/sbin/getty 115200 ttyS1
 ```
 * Save the updated ```/etc/inittab```
 * Run ```reboot -f``` to shutdown Linux and reboot the platform.
-* Set the Tera Term baud rate to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.
+* Set the Tera Term baud rate back to 460800 for Galileo Gen 1 or 921600 for Galileo Gen 2.
+
+After these changes both the EDK II firmware and the Linux OS use the same baud rate.
 
 ### **Testing ACPI S3 Sleep**
 
