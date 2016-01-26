@@ -303,6 +303,6 @@ The figure below should be seen when a connection is made.  The SoftDebugger Deb
 
 ## **UEFI Secure Boot Feature and Physical Presence**
 
-## **Testing Measured Boot Feature using Atmel I2C TPM on CryptoShield**
+## **Enable Measured Boot Feature using Atmel I2C TPM on CryptoShield**
 
 ## **Measuring Boot Performance**
