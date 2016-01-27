@@ -239,7 +239,7 @@ http://www.dediprog.com/pd/spi-flash-solution/SF100).
 
 * Connect the DediProg SF100 to the Galileo development board.
 
-    ![](Images/Dediprog.jpg)
+    ![](https://github.com/mdkinney/mybooks/wiki/Images/Dediprog.jpg)
 
 * Make sure ```dpcmd.exe``` is in ```PATH```
 
@@ -273,7 +273,7 @@ Boot Manager, UEFI Shell, and operating system.
 The default serial communication parameters for the Intel(R) Galileo Gen 2
 Development Board is 921600,n,8,1 with no hardware flow control.
 
-![](Images/TeraTermSerialParameters.png)
+![](https://github.com/mdkinney/mybooks/wiki/Images/TeraTermSerialParameters.png)
 
 The default serial communication parameters for the Intel(R) Galileo Development
 Board is 461800,n,8,1 with no hardware flow control.
@@ -285,11 +285,11 @@ recommendation apply to the TCPIP use cases.
 
 * TERATERM.INI - Set terminal size to 80 x 25 and terminal settings to UTF8.
 
-![](Images/TeraTermTerminal.png)
+![](https://github.com/mdkinney/mybooks/wiki/Images/TeraTermTerminal.png)
 
 * TERATERM.INI - Set font type to Terminal to support box drawing glyphs.
 
-![](Images/TeraTermFont.png)
+![](https://github.com/mdkinney/mybooks/wiki/Images/TeraTermFont.png)
 
 * TERATERM.INI - Disable line mode to make TCPIP mode work like COM port mode.
 
@@ -353,7 +353,7 @@ Connect power adapter to Galileo development board, and the logging messages
 should be seen, followed by 5 second countdown, followed by an automatic boot to
 the built-in UEFI Shell.
 
-![](Images/UefiShell.png)
+![](https://github.com/mdkinney/mybooks/wiki/Images/UefiShell.png)
 
 ## **Source Level Debug Using Intel(R) UEFI Development Kit Debugger Tool**
 
@@ -410,7 +410,7 @@ the debug agent is initialized.  The WinDbg window shows that the debugger is
 connected and the WinDbg application can be used for run control, breakpoint
 management, and viewing call stacks, local variables,  global variables, etc.
 
-![](Images/UdkDebugger.png)
+![](https://github.com/mdkinney/mybooks/wiki/Images/UdkDebugger.png)
 
 ## **Debug Using Intel(R) System Debugger using OpenOCD**
 
@@ -615,7 +615,7 @@ Use Dediprog SF100 to update the Galileo development board FLASH image.
 Attach the CryptoShield to the Arduino header of the Galileo development board
 as shown below.
 
-![](Images/GalileoCryptoShield.jpg)
+![](https://github.com/mdkinney/mybooks/wiki/Images/GalileoCryptoShield.jpg)
 
 Connect power adapter to Galileo development board and boot to the UEFI Shell.
 In the boot logging messages, messages similar to the following should be seen
@@ -663,4 +663,4 @@ extra work that is only performed one time.  In order to get correct performance
 measurements, use the 2nd or later boots.  After the 2nd boot, run the
 ```dp –s``` command.  The output should look similar to the figure below.
 
-![](Images/DpCommand.png)
+![](https://github.com/mdkinney/mybooks/wiki/Images/DpCommand.png)
