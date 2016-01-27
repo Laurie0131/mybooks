@@ -192,7 +192,7 @@ The default serial communication parameters for the Intel(R) Galileo Development
 
 The following changes to the [Tera Term](https://en.osdn.jp/projects/ttssh2/releases/) configuration files are recommended for UEFI cserial console compatiblity.  Some of the later use cases involve using the TCPIP mode, so some of these recommendedation apply to the TCPIP use cases.
 
-* TERATERM.INI - Set terminal settings to UTF8.
+* TERATERM.INI - Set terminal size to 80 x 25 and terminal settings to UTF8.
 
 ![](Images/TeraTermTerminal.png)
 
@@ -211,8 +211,6 @@ EnableLineMode=off
 
 ```ini
 [VT function keys]
-;F5 key
-;F5=63
 ;F6 key
 ;F6=64
 ;F7 key
