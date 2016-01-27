@@ -31,6 +31,14 @@
 * GIT client: Available from https://git-scm.com/downloads
 * Microsoft Visual Studio.
     - Visual Studio 2015 is recommended and is the version used in the examples shown below.
+* Microsoft Windows Driver Development Kit 3790.1830
+    - http://download.microsoft.com/download/9/0/f/90f019ac-8243-48d3-91cf-81fc4093ecfd/1830_usa_ddk.iso
+    - Mount ISO image
+	- Right click on x86\kitsetup.exe & choose "Run as administrator"
+	- Install to C:\WINDDK\3790.1830
+	- Uncheck all Component Groups
+	- Check Build Environment -> Windows Driver Development Kit 16-bit Additional Build Tools.
+	- Install
 * ASL compiler: Available from http://www.acpica.org
     - Install into ```C:\ASL``` to match default tools_def.txt configuration.
 
