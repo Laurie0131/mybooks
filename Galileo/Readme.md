@@ -395,7 +395,7 @@ After these changes both the EDK II firmware and the Linux OS use the same baud 
 
 ### **Testing ACPI S3 Sleep**
 
-The ACPI S3 Sleep and ake feature can be tested on a Galileo develpment board using the Real Time Clock (RTC) for a wake event.  The shell script shown below arms the RTC wake alarm 10 seconds in the future. and puts the system to sleep.  A shorter time ins seconds can be passed in as the first argument to the script.
+The ACPI S3 Sleep and Resume feature can be tested on a Galileo develpment board using the Real Time Clock (RTC) for a wake event.  The shell script shown below arms the RTC wake alarm 10 seconds in the future. and puts the system to sleep.  A shorter time in seconds can be passed in as the first argument to the script.
 
 **NOTE**: The stmmac module is unloaded because the module is not compatible with S3 resume.
 
