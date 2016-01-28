@@ -122,14 +122,14 @@ export WORKSPACE=$PWD
 export PACKAGES_PATH=$WORKSPACE/edk2:$WORKSPACE/edk2-non-osi
 export EDK_TOOLS_PATH=$WORKSPACE/edk2/BaseTools
 
-make â€“C edk2/BaseTools
+make –C edk2/BaseTools
 
 cd $WORKSPACE/edk2
 
 . edksetup.sh BaseTools
 
-build â€“a IA32 â€“t GCC49 â€“p QuarkPlatformPkg/Quark.dsc
-build â€“a IA32 â€“t GCC49 â€“p QuarkPlatformPkg/QuarkMin.dsc
+build –a IA32 –t GCC49 –p QuarkPlatformPkg/Quark.dsc
+build –a IA32 –t GCC49 –p QuarkPlatformPkg/QuarkMin.dsc
 ```
 
 ## **Build Features**
@@ -661,6 +661,6 @@ Shell.  Then use the REBOOT button or the ```reset``` UEFI Shell command to
 reboot the Galileo development board.  The first boot after a FLASH update does
 extra work that is only performed one time.  In order to get correct performance
 measurements, use the 2nd or later boots.  After the 2nd boot, run the
-```dp â€“s``` command.  The output should look similar to the figure below.
+```dp –s``` command.  The output should look similar to the figure below.
 
 ![](https://github.com/mdkinney/mybooks/wiki/Images/DpCommand.png)
